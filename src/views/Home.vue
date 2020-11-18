@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <h1>Welcome to Todo List</h1>
+    <div class="image-wrapper">
+      <img class="home-image" src="../../src/assets/images/1_encF5EeouyEH8YTANng4Aw.png" alt=""/>
+      <div class="bg-image"></div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
 export default defineComponent({
-  name: "Home",
-  components: {
-    HelloWorld
-  }
+  name: "Home"
 });
 </script>
+<style lang="scss" scoped>
+.home {
+  padding: 3em;
+  .home-image {
+    width: 70%;
+    height: 500px;
+    object-fit: cover;
+  }
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .bg-image {
+    width: 500px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("../assets/images/2020_07_02_99202_1593661562._large.jpg");
+  }
+}
+</style>
