@@ -81,10 +81,7 @@ export default defineComponent({
           password: this.password
         });
       } else {
-        this.$toast.add({
-          severity: "error",
-          summary: "Passwords do not match"
-        });
+        this.errorToast("Passwords do not match");
       }
     }
   }

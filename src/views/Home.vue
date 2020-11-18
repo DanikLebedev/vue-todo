@@ -18,10 +18,10 @@ export default defineComponent({
   },
   methods: {
     goToTodo() {
-      if(this.$store.getters.token) {
-        this.$router.push('/create');
+      if (this.$store.getters.token) {
+        this.$router.push("/create");
       } else {
-        this.$toast.add({severity:'error', summary: 'Please login'});
+        this.errorToast("Please login");
       }
     }
   }
