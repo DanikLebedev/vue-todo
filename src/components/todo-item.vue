@@ -1,7 +1,7 @@
 <template>
   <div class="p-card p-shadow-3">
-    <div class="p-text-secondary">
-      HEASDSAD
+    <div class="p-text-secondary" :class="{ done: todo.done }">
+      {{ todo.title }}
     </div>
     <div class="buttons-wrapper">
       <Button icon="pi pi-pencil" label="Edit" />
@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import Button from "primevue/components/button/Button";
-import { Todo } from "@/models/todo";
+import { Todo } from "@/models/interfaces";
 
 export default defineComponent({
   name: "TodoItem",
@@ -21,12 +21,11 @@ export default defineComponent({
     Button
   },
   props: {
-    todo: Object as PropType<Todo>,
+    todo: Object as PropType<Todo>
   }
 });
 </script>
 <style lang="scss" scoped>
-
 .p-card {
   border: 1px solid #cdcdcd;
   padding: 20px;
@@ -37,6 +36,9 @@ export default defineComponent({
   align-items: center;
   .p-card-title {
     margin-bottom: 0;
+  }
+  .done {
+    text-decoration: line-through;
   }
 }
 .buttons-wrapper {

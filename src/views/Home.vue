@@ -16,7 +16,6 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .home {
-  padding: 3em;
   .home-image {
     width: 70%;
     height: 500px;

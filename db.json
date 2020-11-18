@@ -1,5 +1,31 @@
 {
   "todos": [
-    { "id": 1, "title": "json-server", "done": false }
+    {
+      "id": 1,
+      "title": "Setup project",
+      "done": true
+    },
+    {
+      "id": 2,
+      "title": "Create Home Page",
+      "done": true
+    },
+    {
+      "id": 3,
+      "title": "Create Login Page",
+      "done": false
+    },
+    {
+      "id": 4,
+      "title": "Setup Routing",
+      "done": false
+    }
+  ],
+  "users": [
+    {
+      "email": "danik_lebedev1999@mail.ru",
+      "password": "$2a$10$omlX64hxrPjZF4CcR/iHiuC9d5YumwdeNwr7atTKT1RUno4hSrKvq",
+      "id": 1
+    }
   ]
 }
