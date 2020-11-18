@@ -1,0 +1,126 @@
+<template>
+  <div class="login-page">
+    <h1>Sign up</h1>
+    <div class="login-wrapper">
+      <form @submit.prevent="onSubmit">
+        <div class="form-field">
+          <span class="p-input-icon-right ">
+            <i class="pi pi-user" />
+            <label for="login">
+              <Input
+                aria-describedby="login-help"
+                placeholder="Login"
+                id="login"
+                type="email"
+                required
+                v-model="login"
+              />
+            </label>
+          </span>
+        </div>
+        <div class="form-field">
+          <span class="p-input-icon-right p-field">
+            <i class="pi pi-lock" />
+            <label>
+              <Input
+                placeholder="Password"
+                id="password"
+                type="password"
+                v-model="password"
+                required
+              />
+            </label>
+          </span>
+        </div>
+        <div class="form-field">
+          <span class="p-input-icon-right p-field">
+            <i class="pi pi-lock" />
+            <label>
+              <Input
+                placeholder="Confirm your password"
+                id="confirm-password"
+                type="password"
+                v-model="confirmPassword"
+                required
+              />
+            </label>
+          </span>
+        </div>
+        <Button type="submit" icon="pi pi-check" label="Submit" />
+      </form>
+    </div>
+    <Toast />
+  </div>
+</template>
+
+<script>
+import { defineComponent } from "vue";
+import Input from "primevue/components/inputtext/InputText";
+import Button from "primevue/components/button/Button";
+import Toast from "primevue/components/toast/Toast";
+
+export default defineComponent({
+  name: "SignUp",
+  data() {
+    return {
+      login: null,
+      password: null,
+      confirmPassword: null
+    };
+  },
+  components: {
+    Input,
+    Button,
+    Toast
+  },
+  methods: {
+    async onSubmit() {
+      if(this.password === this.confirmPassword) {
+        this.$store.dispatch("signup", {
+          email: this.login,
+          password: this.password
+        });
+      } else {
+        this.$toast.add({
+          severity: "error",
+          summary: "Passwords do not match"
+        });
+      }
+    }
+  }
+});
+</script>
+<style lang="scss" scoped>
+.login-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+  border-radius: 10px;
+  border: 1px solid #cdcdcd;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  input {
+    width: 400px;
+  }
+  .error-span {
+    display: none;
+  }
+  small {
+    margin-top: 5px;
+  }
+}
+</style>

@@ -4,7 +4,10 @@
       <router-link to="/">Home</router-link>
       <router-link v-if="isAuth" to="/todos">Todo List</router-link>
     </nav>
-    <router-link v-if="!isAuth" to="/login">Login</router-link>
+    <div>
+      <router-link v-if="!isAuth" to="/login">Login</router-link>
+      <router-link v-if="!isAuth" to="/signup">SignUp</router-link>
+    </div>
     <Button class="p-button-help" @click="logout" v-if="isAuth">Logout</Button>
   </div>
 </template>

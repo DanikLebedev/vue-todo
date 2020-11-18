@@ -36,6 +36,12 @@ export default createStore({
         router.push("/");
       }
     },
+    signup: async ({commit}, model) => {
+      const response = await ApiService.signup(model)
+      AuthService.login(response.data.accessToken)
+      commit('setToken', response.data.accessToken)
+      router.push("/");
+    },
     logout: async ({commit}) => {
       commit('removeToken')
       AuthService.logout()
