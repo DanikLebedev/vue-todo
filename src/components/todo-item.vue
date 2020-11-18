@@ -1,11 +1,11 @@
 <template>
   <div class="p-card p-shadow-3">
-    <div class="p-text-secondary" :class="{ done: todo.done }">
+    <div class="p-text-secondary done-text" @click="toggleDone" :class="{ done: todo.done }">
       {{ todo.title }}
     </div>
     <div class="buttons-wrapper">
-      <Button icon="pi pi-pencil" label="Edit" />
-      <Button class="p-button-danger" icon="pi pi-trash" label="Delete" />
+      <Button icon="pi pi-pencil" label="Edit" @click="editTodo"/>
+      <Button class="p-button-danger" icon="pi pi-trash" @click="deleteTodo" label="Delete" />
     </div>
   </div>
 </template>
@@ -22,10 +22,24 @@ export default defineComponent({
   },
   props: {
     todo: Object as PropType<Todo>
+  },
+  methods: {
+    editTodo() {
+      this.$router.push(`/edit/${this.todo && this.todo.id}`)
+    },
+    deleteTodo() {
+      this.$store.dispatch('deleteTodo', this.todo && this.todo.id)
+    },
+    toggleDone() {
+      this.$store.dispatch('updateTodo', {...this.todo, done: this.todo && !this.todo.done})
+    }
   }
 });
 </script>
 <style lang="scss" scoped>
+.done-text {
+  cursor: pointer;
+}
 .p-card {
   border: 1px solid #cdcdcd;
   padding: 20px;

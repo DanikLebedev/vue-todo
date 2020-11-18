@@ -8,6 +8,30 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Home.vue')
   },
   {
+    path: "/create",
+    name: "Create",
+    component: () => import('../views/Edit.vue'),
+    beforeEnter: (to, from, next) => {
+      if (store.getters.token) {
+        next();
+      } else {
+        next("/login");
+      }
+    }
+  },
+  {
+    path: "/edit/:id",
+    name: "Edit",
+    component: () => import('../views/Edit.vue'),
+    beforeEnter: (to, from, next) => {
+      if (store.getters.token) {
+        next();
+      } else {
+        next("/login");
+      }
+    }
+  },
+  {
     path: "/todos",
     name: "Todos",
     component: () => import("../views/TodoList.vue"),

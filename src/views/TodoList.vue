@@ -1,22 +1,21 @@
 <template>
   <div class="todo-page">
     <h2>Todo List</h2>
+    <Button icon="pi pi-plus" class="add-btn" @click="$router.push('/create')" label="Add Todo" />
     <div v-if="todos.length" class="todo-list">
       <todo-item v-for="todo in todos" :key="todo.id" :todo="todo" />
     </div>
     <div v-else>
       <h3>Todos not found</h3>
-      <Button icon="pi pi-plus" label="Add Interaces" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import ApiService from "@/utils/apiService";
 import Button from "primevue/components/button/Button";
 import TodoItem from "../components/todo-item.vue";
-import { Todo } from "@/models/interfaces";
+import { defineComponent } from "vue";
+
 
 export default defineComponent({
   name: "Home",
@@ -25,17 +24,19 @@ export default defineComponent({
     Button
   },
   created() {
-    ApiService.getTodos().then(items => (this.todos = items));
+    this.$store.dispatch('getTodos')
   },
-  data() {
-    return {
-      todos: [] as Todo[]
-    };
-  }
-
+  computed: {
+    todos() {
+      return this.$store.getters.todos;
+    }
+  },
 });
 </script>
 <style lang="scss" scoped>
+.add-btn {
+  margin-bottom: 1em;
+}
 .todo-list {
   display: flex;
   justify-content: space-around;

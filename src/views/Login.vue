@@ -42,7 +42,6 @@
 import { defineComponent } from "vue";
 import Input from "primevue/components/inputtext/InputText";
 import Button from "primevue/components/button/Button";
-import ApiService from "@/utils/apiService";
 
 export default defineComponent({
   name: "Login",

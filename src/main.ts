@@ -1,4 +1,5 @@
 import { createApp, App, Component } from "vue";
+import ToastService from 'primevue/toastservice';
 import Application  from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -10,3 +11,5 @@ app.use(store)
   .use(router)
   .mount("#app")
 
+
+app.use(ToastService)

@@ -1,7 +1,6 @@
 import axios from './axios.config'
 import {AxiosPromise, AxiosResponse} from "axios";
 
-import {AuthService} from "@/utils/authService"
 import {LoginFormObject, Todo} from "@/models/interfaces";
 
 
@@ -11,8 +10,19 @@ export default class ApiService {
         return response.data;
     }
 
-    static createTodo() {
-        return
+    static async getTodoById(id: string): Promise<Todo[]> {
+        const response: AxiosResponse = await axios.get(`/todos/${id}`);
+        return response.data;
+    }
+
+    static async createTodo(formObject: Todo) {
+        const response: AxiosResponse = await axios.post('/todos', formObject);
+        return response;
+    }
+
+    static async updateTodo(formObject: Todo) {
+        const response: AxiosResponse = await axios.put(`/todos/${formObject.id}`, formObject);
+        return response;
     }
 
     static async signup(formObject: LoginFormObject) {
@@ -25,11 +35,9 @@ export default class ApiService {
         return response;
     }
 
-    static deleteTodo() {
-        return
+    static async deleteTodo(id: string) {
+        const response: AxiosResponse = await axios.delete(`/todos/${id}`);
+        return response;
     }
 
-    static updateTodo() {
-        return
-    }
 }

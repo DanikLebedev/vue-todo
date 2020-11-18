@@ -5,14 +5,19 @@
       <router-link v-if="isAuth" to="/todos">Todo List</router-link>
     </nav>
     <router-link v-if="!isAuth" to="/login">Login</router-link>
-    <button @click="logout" v-if="isAuth">Logout</button>
+    <Button class="p-button-help" @click="logout" v-if="isAuth">Logout</Button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
+import Button from "primevue/components/button/Button";
+
 export default defineComponent({
   name: "navbar",
+  components: {
+    Button
+  },
   computed: {
     isAuth() {
       return !!this.$store.getters.token;
