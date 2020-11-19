@@ -11,6 +11,7 @@
           :required="required"
           :value="value"
           @input="input"
+          v-valid:[validRule]
         />
       </label>
     </span>
@@ -34,6 +35,7 @@ export default defineComponent({
     required: Boolean,
     icon: String,
     value: String,
+    validRule: String
   },
   methods: {
     input(event: { target: HTMLInputElement }) {

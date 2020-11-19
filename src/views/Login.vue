@@ -9,6 +9,7 @@
             icon="pi-user"
             :required="true"
             placeholder="Email"
+            valid-rule="email"
             type="email"
             v-model:value="login"
           />

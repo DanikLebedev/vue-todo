@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Setup projectqwe",
-      "done": false
-    },
-    {
       "id": 3,
       "title": "Create Login Page",
       "done": false
