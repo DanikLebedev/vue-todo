@@ -1,56 +1,58 @@
 <template>
-  <div class="login-page">
-    <h1>Sign up</h1>
-    <div class="login-wrapper">
-      <form @submit.prevent="onSubmit">
-        <div class="form-field">
-          <span class="p-input-icon-right ">
-            <i class="pi pi-user" />
-            <label for="login">
-              <Input
-                aria-describedby="login-help"
-                placeholder="Login"
-                id="login"
-                type="email"
-                required
-                v-model="login"
-              />
-            </label>
-          </span>
-        </div>
-        <div class="form-field">
-          <span class="p-input-icon-right p-field">
-            <i class="pi pi-lock" />
-            <label>
-              <Input
-                placeholder="Password"
-                id="password"
-                type="password"
-                v-model="password"
-                required
-              />
-            </label>
-          </span>
-        </div>
-        <div class="form-field">
-          <span class="p-input-icon-right p-field">
-            <i class="pi pi-lock" />
-            <label>
-              <Input
-                placeholder="Confirm your password"
-                id="confirm-password"
-                type="password"
-                v-model="confirmPassword"
-                required
-              />
-            </label>
-          </span>
-        </div>
-        <Button type="submit" icon="pi pi-check" label="Submit" />
-      </form>
+  <Container>
+    <div class="login-page">
+      <h1>Sign up</h1>
+      <div class="login-wrapper">
+        <form @submit.prevent="onSubmit">
+          <div class="form-field">
+            <span class="p-input-icon-right ">
+              <i class="pi pi-user" />
+              <label for="login">
+                <Input
+                  aria-describedby="login-help"
+                  placeholder="Login"
+                  id="login"
+                  type="email"
+                  required
+                  v-model="login"
+                />
+              </label>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="p-input-icon-right p-field">
+              <i class="pi pi-lock" />
+              <label>
+                <Input
+                  placeholder="Password"
+                  id="password"
+                  type="password"
+                  v-model="password"
+                  required
+                />
+              </label>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="p-input-icon-right p-field">
+              <i class="pi pi-lock" />
+              <label>
+                <Input
+                  placeholder="Confirm your password"
+                  id="confirm-password"
+                  type="password"
+                  v-model="confirmPassword"
+                  required
+                />
+              </label>
+            </span>
+          </div>
+          <Button type="submit" icon="pi pi-check" label="Submit" />
+        </form>
+      </div>
+      <Toast />
     </div>
-    <Toast />
-  </div>
+  </Container>
 </template>
 
 <script>
@@ -58,6 +60,7 @@ import { defineComponent } from "vue";
 import Input from "primevue/components/inputtext/InputText";
 import Button from "primevue/components/button/Button";
 import Toast from "primevue/components/toast/Toast";
+import Container from "@/components/container";
 
 export default defineComponent({
   name: "SignUp",
@@ -69,13 +72,14 @@ export default defineComponent({
     };
   },
   components: {
+    Container,
     Input,
     Button,
     Toast
   },
   methods: {
     async onSubmit() {
-      if(this.password === this.confirmPassword) {
+      if (this.password === this.confirmPassword) {
         this.$store.dispatch("signup", {
           email: this.login,
           password: this.password

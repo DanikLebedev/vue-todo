@@ -1,4 +1,4 @@
-import { createStore } from "vuex";
+import {createStore, CustomVue} from "vuex";
 import ApiService from "@/utils/apiService";
 import router from "../router/index";
 import {AuthService} from "@/utils/authService";

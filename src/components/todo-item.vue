@@ -25,13 +25,13 @@ export default defineComponent({
   },
   methods: {
     editTodo() {
-      this.$router.push(`/edit/${this.todo && this.todo.id}`)
+      this.$router.push(`/edit/${this.todo && this.todo.id}`);
     },
     deleteTodo() {
-      this.$store.dispatch('deleteTodo', this.todo && this.todo.id)
+      this.$store.dispatch('deleteTodo', this.todo && this.todo.id);
     },
     toggleDone() {
-      this.$store.dispatch('updateTodo', {...this.todo, done: this.todo && !this.todo.done})
+      this.$store.dispatch('updateTodo', {...this.todo, done: this.todo && !this.todo.done});
     }
   }
 });
