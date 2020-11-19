@@ -9,8 +9,9 @@
               <i class="pi pi-user" />
               <label for="login">
                 <Input
+                  v-valid:email
                   aria-describedby="login-help"
-                  placeholder="Login"
+                  placeholder="Email"
                   id="login"
                   type="email"
                   required
