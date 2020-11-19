@@ -1,39 +1,25 @@
 <template>
   <Container>
-    <div class="login-page">
+    <div class="login-page p">
       <h1>Login</h1>
       <div class="login-wrapper">
         <form @submit.prevent="onSubmit">
-          <div class="form-field">
-            <span class="p-input-icon-right ">
-              <i class="pi pi-user" />
-              <label for="login">
-                <Input
-                  v-valid:email
-                  aria-describedby="login-help"
-                  placeholder="Email"
-                  id="login"
-                  type="email"
-                  required
-                  v-model="login"
-                />
-              </label>
-            </span>
-          </div>
-          <div class="form-field">
-            <span class="p-input-icon-right p-field">
-              <i class="pi pi-lock" />
-              <label>
-                <Input
-                  placeholder="Password"
-                  id="password"
-                  type="password"
-                  v-model="password"
-                  required
-                />
-              </label>
-            </span>
-          </div>
+          <custom-input
+            name="email"
+            icon="pi-user"
+            :required="true"
+            placeholder="Email"
+            type="email"
+            v-model:value="login"
+          />
+          <custom-input
+            name="password"
+            :required="true"
+            placeholder="Password"
+            type="password"
+            icon="pi-lock"
+            v-model:value="password"
+          />
           <Button type="submit" icon="pi pi-check" label="Submit" />
         </form>
       </div>
@@ -43,9 +29,9 @@
 
 <script>
 import { defineComponent } from "vue";
-import Input from "primevue/components/inputtext/InputText";
 import Button from "primevue/components/button/Button";
 import Container from "@/components/container";
+import CustomInput from "@/components/custom-input";
 
 export default defineComponent({
   name: "Login",
@@ -57,8 +43,8 @@ export default defineComponent({
   },
   components: {
     Container,
-    Input,
-    Button
+    Button,
+    CustomInput
   },
   methods: {
     async onSubmit() {
@@ -86,21 +72,5 @@ export default defineComponent({
   padding: 40px 60px;
   border-radius: 10px;
   border: 1px solid #cdcdcd;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  input {
-    width: 400px;
-  }
-  .error-span {
-    display: none;
-  }
-  small {
-    margin-top: 5px;
-  }
 }
 </style>

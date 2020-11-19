@@ -16,6 +16,7 @@
                   type="email"
                   required
                   v-model="login"
+                  icon="pi-user"
                 />
               </label>
             </span>
@@ -110,19 +111,4 @@ export default defineComponent({
   border: 1px solid #cdcdcd;
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  input {
-    width: 400px;
-  }
-  .error-span {
-    display: none;
-  }
-  small {
-    margin-top: 5px;
-  }
-}
 </style>
