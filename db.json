@@ -27,5 +27,19 @@
       "password": "$2a$10$IBc7xW54pdO94LmB5xME3.4pJyDcP6OmCtq9DJcoMe4vzC.yfAjEm",
       "id": 2
     }
+  ],
+  "components": [
+    {
+      "type": "text",
+      "label": "Your wishes",
+      "defaultValue": "some test",
+      "id": 1
+    },
+    {
+      "type": "email",
+      "label": "Your second email",
+      "defaultValue": null,
+      "id": 1
+    }
   ]
 }

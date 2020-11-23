@@ -1,7 +1,7 @@
 import axios from './axios.config'
-import {AxiosPromise, AxiosResponse} from "axios";
+import {AxiosResponse} from "axios";
 
-import {LoginFormObject, Todo} from "@/models/interfaces";
+import {DynamicComponent, LoginFormObject, Todo} from "@/models/interfaces";
 
 
 export default class ApiService {
@@ -38,6 +38,11 @@ export default class ApiService {
     static async deleteTodo(id: string) {
         const response: AxiosResponse = await axios.delete(`/todos/${id}`);
         return response;
+    }
+
+    static async getComponents(): Promise<DynamicComponent[]> {
+        const response: AxiosResponse = await axios.get(`/components`);
+        return response.data;
     }
 
 }

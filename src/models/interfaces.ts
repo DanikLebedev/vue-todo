@@ -8,3 +8,9 @@ export interface LoginFormObject {
     email: string;
     password: string;
 }
+
+export interface DynamicComponent {
+    type: string;
+    label: string;
+    defaultValue: string | null;
+}

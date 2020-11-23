@@ -13,6 +13,10 @@
         </label>
         <Button type="submit" icon="pi pi-check" label="Submit" />
       </form>
+      <div>
+        <h2>Dynamic components</h2>
+        <dynamic-components/>
+      </div>
     </div>
   </Container>
 </template>
@@ -23,13 +27,15 @@ import Input from "primevue/components/inputtext/InputText";
 import Button from "primevue/components/button/Button";
 import { Todo } from "@/models/interfaces";
 import Container from "@/components/container.vue";
+import DynamicComponents from "@/components/dynamic-component.vue";
 
 export default defineComponent({
   name: "edit",
   components: {
     Container,
     Input,
-    Button
+    Button,
+    DynamicComponents
   },
   created() {
     if (this.$route.params.id) {
