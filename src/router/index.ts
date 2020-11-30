@@ -5,7 +5,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/Home.vue'),
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/create',
@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
       } else {
         next('/login');
       }
-    },
+    }
   },
   {
     path: '/edit/:id',
@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
       } else {
         next('/login');
       }
-    },
+    }
   },
   {
     path: '/todos',
@@ -41,28 +41,28 @@ const routes: Array<RouteRecordRaw> = [
       } else {
         next('/login');
       }
-    },
+    }
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue'),
+    component: () => import('../views/Login.vue')
   },
   {
     path: '/signup',
     name: 'SignUp',
-    component: () => import('../views/SignUp.vue'),
+    component: () => import('../views/SignUp.vue')
   },
   {
     path: '/:pathMatch(.*)*',
     name: '404 Error',
-    component: () => import('../views/404Page.vue'),
-  },
+    component: () => import('../views/404Page.vue')
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
+  routes
 });
 
 export default router;

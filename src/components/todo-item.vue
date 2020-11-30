@@ -1,20 +1,11 @@
 <template>
   <div class="p-card p-shadow-3">
-    <div
-      class="p-text-secondary done-text"
-      @click="toggleDone"
-      :class="{ done: todo.done }"
-    >
+    <div class="p-text-secondary done-text" @click="toggleDone" :class="{ done: todo.done }">
       {{ todo.title }}
     </div>
     <div class="buttons-wrapper">
       <Button icon="pi pi-pencil" label="Edit" @click="editTodo" />
-      <Button
-        class="p-button-danger"
-        icon="pi pi-trash"
-        @click="deleteTodo"
-        label="Delete"
-      />
+      <Button class="p-button-danger" icon="pi pi-trash" @click="deleteTodo" label="Delete" />
     </div>
   </div>
 </template>
@@ -27,10 +18,10 @@ import { Todo } from '@/models/interfaces';
 export default defineComponent({
   name: 'TodoItem',
   components: {
-    Button,
+    Button
   },
   props: {
-    todo: Object as PropType<Todo>,
+    todo: Object as PropType<Todo>
   },
   methods: {
     editTodo() {
@@ -42,10 +33,10 @@ export default defineComponent({
     toggleDone() {
       this.$store.dispatch('updateTodo', {
         ...this.todo,
-        done: this.todo && !this.todo.done,
+        done: this.todo && !this.todo.done
       });
-    },
-  },
+    }
+  }
 });
 </script>
 <style lang="scss" scoped>

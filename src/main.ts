@@ -1,4 +1,4 @@
-import { createApp, App, Component } from 'vue';
+import { createApp, App } from 'vue';
 import ToastService from 'primevue/toastservice';
 import Application from './App.vue';
 import router from './router';
@@ -21,11 +21,11 @@ app.mixin({
     },
     errorToast(text: string) {
       this.$toast.add({ severity: 'error', summary: text });
-    },
-  },
+    }
+  }
 });
 app.directive('valid', {
-  updated(el, binding, vnode) {
+  updated(el, binding) {
     if (binding.arg === 'email') {
       const valid = emailReg.test(el.value);
       if (!valid) {
@@ -36,5 +36,5 @@ app.directive('valid', {
         el.style.borderColor = 'green';
       }
     }
-  },
+  }
 });

@@ -15,7 +15,7 @@
 import Navbar from '@/components/navbar';
 export default {
   components: {
-    Navbar,
-  },
+    Navbar
+  }
 };
 </script>

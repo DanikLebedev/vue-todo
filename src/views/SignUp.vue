@@ -50,27 +50,27 @@ export default defineComponent({
     return {
       login: null,
       password: null,
-      confirmPassword: null,
+      confirmPassword: null
     };
   },
   components: {
     Container,
     CustomInput,
     Button,
-    Toast,
+    Toast
   },
   methods: {
     async onSubmit() {
       if (this.password === this.confirmPassword) {
         this.$store.dispatch('signup', {
           email: this.login,
-          password: this.password,
+          password: this.password
         });
       } else {
         this.errorToast('Passwords do not match');
       }
-    },
-  },
+    }
+  }
 });
 </script>
 <style lang="scss" scoped>

@@ -39,22 +39,22 @@ export default defineComponent({
   data() {
     return {
       login: null,
-      password: null,
+      password: null
     };
   },
   components: {
     Container,
     Button,
-    CustomInput,
+    CustomInput
   },
   methods: {
     async onSubmit() {
       this.$store.dispatch('login', {
         email: this.login,
-        password: this.password,
+        password: this.password
       });
-    },
-  },
+    }
+  }
 });
 </script>
 <style lang="scss" scoped>

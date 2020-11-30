@@ -2,12 +2,7 @@
   <Container>
     <div class="todo-page">
       <h2>Todo List</h2>
-      <Button
-        icon="pi pi-plus"
-        class="add-btn"
-        @click="$router.push('/create')"
-        label="Add Todo"
-      />
+      <Button icon="pi pi-plus" class="add-btn" @click="$router.push('/create')" label="Add Todo" />
       <div v-if="todos.length" class="todo-list">
         <todo-item v-for="todo in todos" :key="todo.id" :todo="todo" />
       </div>
@@ -29,7 +24,7 @@ export default defineComponent({
   components: {
     Container,
     TodoItem,
-    Button,
+    Button
   },
   created() {
     this.$store.dispatch('getTodos');
@@ -37,8 +32,8 @@ export default defineComponent({
   computed: {
     todos() {
       return this.$store.getters.todos;
-    },
-  },
+    }
+  }
 });
 </script>
 <style lang="scss" scoped>

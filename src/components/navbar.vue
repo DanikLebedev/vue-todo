@@ -9,9 +9,7 @@
         <router-link v-if="!isAuth" to="/login">Login</router-link>
         <router-link v-if="!isAuth" to="/signup">SignUp</router-link>
       </div>
-      <Button class="p-button-help" @click="logout" v-if="isAuth"
-        >Logout</Button
-      >
+      <Button class="p-button-help" @click="logout" v-if="isAuth">Logout</Button>
     </div>
   </Container>
 </template>
@@ -25,18 +23,18 @@ export default defineComponent({
   name: 'navbar',
   components: {
     Container,
-    Button,
+    Button
   },
   computed: {
     isAuth() {
       return !!this.$store.getters.token;
-    },
+    }
   },
   methods: {
     logout() {
       this.$store.dispatch('logout');
-    },
-  },
+    }
+  }
 });
 </script>
 

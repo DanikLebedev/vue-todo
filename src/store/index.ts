@@ -1,4 +1,4 @@
-import { createStore, CustomVue } from 'vuex';
+import { createStore } from 'vuex';
 import ApiService from '@/utils/apiService';
 import router from '../router/index';
 import { AuthService } from '@/utils/authService';
@@ -8,24 +8,24 @@ export default createStore({
   state: {
     todos: [] as Todo[],
     token: AuthService.getToken() || '',
-    currentTodo: { title: '', done: false } as Todo,
+    currentTodo: { title: '', done: false } as Todo
   },
   getters: {
-    token: state => state.token,
-    todos: state => state.todos,
-    currentTodo: state => state.currentTodo,
+    token: (state) => state.token,
+    todos: (state) => state.todos,
+    currentTodo: (state) => state.currentTodo
   },
   mutations: {
     setToken: (state, payload: string) => {
       state.token = payload;
     },
-    removeToken: state => {
+    removeToken: (state) => {
       state.token = '';
     },
     setTodos: (state, payload: Todo[]) => {
       state.todos = payload;
     },
-    setTodoById: (state, payload: Todo) => (state.currentTodo = payload),
+    setTodoById: (state, payload: Todo) => (state.currentTodo = payload)
   },
   actions: {
     login: async ({ commit }, model) => {
@@ -55,20 +55,20 @@ export default createStore({
       const data = await ApiService.getTodoById(id);
       commit('setTodoById', data);
     },
-    createTodo: async ({ commit }, payload) => {
+    createTodo: async (_, payload) => {
       const response = await ApiService.createTodo(payload);
       if (response.status === 201) {
         router.push('/todos');
       }
     },
-    updateTodo: async ({ commit, dispatch }, payload) => {
+    updateTodo: async ({ dispatch }, payload) => {
       await ApiService.updateTodo(payload);
       await dispatch('getTodos');
       router.push('/todos');
     },
-    deleteTodo: async ({ commit, dispatch }, id) => {
+    deleteTodo: async ({ dispatch }, id) => {
       await ApiService.deleteTodo(id);
       await dispatch('getTodos');
-    },
-  },
+    }
+  }
 });

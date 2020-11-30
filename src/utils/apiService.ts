@@ -20,10 +20,7 @@ export default class ApiService {
   }
 
   static async updateTodo(formObject: Todo) {
-    const response: AxiosResponse = await axios.put(
-      `/todos/${formObject.id}`,
-      formObject
-    );
+    const response: AxiosResponse = await axios.put(`/todos/${formObject.id}`, formObject);
     return response;
   }
 

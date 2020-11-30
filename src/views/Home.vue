@@ -15,7 +15,7 @@ export default defineComponent({
   components: {
     Container: () => import('@/components/container.vue'),
     Button: () => import('primevue/components/button/Button'),
-    Toast: () => import('primevue/components/toast/Toast'),
+    Toast: () => import('primevue/components/toast/Toast')
   },
   methods: {
     goToTodo() {
@@ -24,7 +24,7 @@ export default defineComponent({
       } else {
         this.errorToast('Please login');
       }
-    },
-  },
+    }
+  }
 });
 </script>
