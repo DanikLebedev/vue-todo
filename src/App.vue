@@ -12,10 +12,10 @@
 }
 </style>
 <script>
-import Navbar from "@/components/navbar";
+import Navbar from '@/components/navbar';
 export default {
   components: {
-    Navbar
-  }
+    Navbar,
+  },
 };
 </script>

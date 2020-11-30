@@ -71,5 +71,4 @@ export default createStore({
       await dispatch('getTodos')
     }
   },
-  modules: {}
 });
