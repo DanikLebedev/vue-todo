@@ -10,20 +10,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import ApiService from "@/utils/apiService";
-import { DynamicComponent } from "../models/interfaces";
+import { defineComponent } from 'vue';
+import ApiService from '@/utils/apiService';
+import { DynamicComponent } from '../models/interfaces';
 
 export default defineComponent({
-  name: "dynamic-component",
+  name: 'dynamic-component',
   data() {
     return {
-      items: [] as DynamicComponent[]
+      items: [] as DynamicComponent[],
     };
   },
   mounted() {
-    ApiService.getComponents().then(data => this.items = data);
-  }
+    ApiService.getComponents().then(data => (this.items = data));
+  },
 });
 </script>
 

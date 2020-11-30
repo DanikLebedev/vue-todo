@@ -38,39 +38,39 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import Button from "primevue/components/button/Button";
-import Toast from "primevue/components/toast/Toast";
-import Container from "@/components/container";
-import CustomInput from "@/components/custom-input";
+import { defineComponent } from 'vue';
+import Button from 'primevue/components/button/Button';
+import Toast from 'primevue/components/toast/Toast';
+import Container from '@/components/container';
+import CustomInput from '@/components/custom-input';
 
 export default defineComponent({
-  name: "SignUp",
+  name: 'SignUp',
   data() {
     return {
       login: null,
       password: null,
-      confirmPassword: null
+      confirmPassword: null,
     };
   },
   components: {
     Container,
     CustomInput,
     Button,
-    Toast
+    Toast,
   },
   methods: {
     async onSubmit() {
       if (this.password === this.confirmPassword) {
-        this.$store.dispatch("signup", {
+        this.$store.dispatch('signup', {
           email: this.login,
-          password: this.password
+          password: this.password,
         });
       } else {
-        this.errorToast("Passwords do not match");
+        this.errorToast('Passwords do not match');
       }
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="scss" scoped>

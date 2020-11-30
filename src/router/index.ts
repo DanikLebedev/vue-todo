@@ -1,68 +1,68 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import store from "../store/index";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import store from '../store/index';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "Home",
-    component: () => import('../views/Home.vue')
+    path: '/',
+    name: 'Home',
+    component: () => import('../views/Home.vue'),
   },
   {
-    path: "/create",
-    name: "Create",
+    path: '/create',
+    name: 'Create',
     component: () => import('../views/Edit.vue'),
     beforeEnter: (to, from, next) => {
       if (store.getters.token) {
         next();
       } else {
-        next("/login");
+        next('/login');
       }
-    }
+    },
   },
   {
-    path: "/edit/:id",
-    name: "Edit",
+    path: '/edit/:id',
+    name: 'Edit',
     component: () => import('../views/Edit.vue'),
     beforeEnter: (to, from, next) => {
       if (store.getters.token) {
         next();
       } else {
-        next("/login");
+        next('/login');
       }
-    }
+    },
   },
   {
-    path: "/todos",
-    name: "Todos",
-    component: () => import("../views/TodoList.vue"),
+    path: '/todos',
+    name: 'Todos',
+    component: () => import('../views/TodoList.vue'),
     beforeEnter: (to, from, next) => {
       if (store.getters.token) {
         next();
       } else {
-        next("/login");
+        next('/login');
       }
-    }
+    },
   },
   {
-    path: "/login",
-    name: "Login",
-    component: () => import( "../views/Login.vue")
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue'),
   },
   {
-    path: "/signup",
-    name: "SignUp",
-    component: () => import( "../views/SignUp.vue")
+    path: '/signup',
+    name: 'SignUp',
+    component: () => import('../views/SignUp.vue'),
   },
   {
-    path: "/:pathMatch(.*)*",
-    name: "404 Error",
-    component: () => import( "../views/404Page.vue")
-  }
+    path: '/:pathMatch(.*)*',
+    name: '404 Error',
+    component: () => import('../views/404Page.vue'),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 });
 
 export default router;

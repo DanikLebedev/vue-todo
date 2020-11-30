@@ -9,25 +9,22 @@
 </template>
 
 <script lang="ts">
-import Button from "primevue/components/button/Button";
-import Toast from "primevue/components/toast/Toast";
-import { defineComponent } from "vue";
-import Container from "@/components/container.vue";
+import { defineComponent } from 'vue';
 export default defineComponent({
-  name: "Home",
+  name: 'Home',
   components: {
-    Container,
-    Button,
-    Toast
+    Container: () => import('@/components/container.vue'),
+    Button: () => import('primevue/components/button/Button'),
+    Toast: () => import('primevue/components/toast/Toast'),
   },
   methods: {
     goToTodo() {
       if (this.$store.getters.token) {
-        this.$router.push("/create");
+        this.$router.push('/create');
       } else {
-        this.errorToast("Please login");
+        this.errorToast('Please login');
       }
-    }
-  }
+    },
+  },
 });
 </script>

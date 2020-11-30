@@ -3,9 +3,9 @@
 </template>
 
 <script>
-  import {defineComponent} from "vue";
+import { defineComponent } from 'vue';
 
-  export default defineComponent({
-    name: '404'
-  })
+export default defineComponent({
+  name: '404',
+});
 </script>

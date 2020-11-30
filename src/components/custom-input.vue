@@ -19,13 +19,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Input from "primevue/components/inputtext/InputText";
+import { defineComponent } from 'vue';
+import Input from 'primevue/components/inputtext/InputText';
 
 export default defineComponent({
-  name: "custom-input",
+  name: 'custom-input',
   components: {
-    Input
+    Input,
   },
   emits: ['update:value'],
   props: {
@@ -35,13 +35,13 @@ export default defineComponent({
     required: Boolean,
     icon: String,
     value: String,
-    validRule: String
+    validRule: String,
   },
   methods: {
     input(event: { target: HTMLInputElement }) {
-      this.$emit('update:value', event.target && event.target.value)
-    }
-  }
+      this.$emit('update:value', event.target && event.target.value);
+    },
+  },
 });
 </script>
 
