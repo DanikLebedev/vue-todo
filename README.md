@@ -9,7 +9,7 @@ npm install
     npm i -g json-server json-server-auth
     ```
 2.  ```
-    json-server db.json -m ./node_modules/json-server-authjson-server-auth
+    json-server db.json -m ./node_modules/json-server-auth
     ```
 
 ### Compiles and hot-reloads for development
