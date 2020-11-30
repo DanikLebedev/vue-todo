@@ -61,7 +61,7 @@ export default createStore({
         router.push('/todos');
       }
     },
-    updateTodo: async ({ dispatch }, payload) => {
+    updateTodo: async ({ dispatch, commit }, payload) => {
       await ApiService.updateTodo(payload);
       await dispatch('getTodos');
       router.push('/todos');
