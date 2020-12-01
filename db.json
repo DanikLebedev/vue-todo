@@ -26,6 +26,11 @@
       "email": "asdasd@mail.ru",
       "password": "$2a$10$IBc7xW54pdO94LmB5xME3.4pJyDcP6OmCtq9DJcoMe4vzC.yfAjEm",
       "id": 2
+    },
+    {
+      "email": "danik_lebedev1231999@mail.ru",
+      "password": "$2a$10$/WIO1ORW6FmdXP.ol8JuG.i1vrbay8lpyGBdU2/77JlJYIMRb4djS",
+      "id": 3
     }
   ],
   "components": [

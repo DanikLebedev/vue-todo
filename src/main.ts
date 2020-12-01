@@ -3,6 +3,8 @@ import ToastService from 'primevue/toastservice';
 import Application from './App.vue';
 import router from './router';
 import store from './store';
+import { toastMixin } from '@/mixins/toastMixin.js';
+import Toast from 'primevue/components/toast/Toast';
 import './index.scss';
 
 const emailReg = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -14,16 +16,7 @@ app
   .mount('#app');
 
 app.use(ToastService);
-app.mixin({
-  methods: {
-    successToast(text: string) {
-      this.$toast.add({ severity: 'error', summary: text });
-    },
-    errorToast(text: string) {
-      this.$toast.add({ severity: 'error', summary: text });
-    }
-  }
-});
+app.mixin(toastMixin);
 app.directive('valid', {
   updated(el, binding) {
     if (binding.arg === 'email') {
@@ -38,3 +31,4 @@ app.directive('valid', {
     }
   }
 });
+app.component(Toast as any);

@@ -32,7 +32,7 @@
           <Button type="submit" icon="pi pi-check" label="Submit" />
         </form>
       </div>
-      <Toast />
+      <Toast position="top-center" />
     </div>
   </Container>
 </template>

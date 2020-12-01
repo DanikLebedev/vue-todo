@@ -32,7 +32,6 @@ export default createStore({
       const response = await ApiService.login(model);
       if (response.status === 200) {
         AuthService.login(response.data.accessToken);
-        commit('setToken', response.data.accessToken);
         router.push('/');
       }
     },
@@ -61,7 +60,7 @@ export default createStore({
         router.push('/todos');
       }
     },
-    updateTodo: async ({ dispatch, commit }, payload) => {
+    updateTodo: async ({ dispatch }, payload) => {
       await ApiService.updateTodo(payload);
       await dispatch('getTodos');
       router.push('/todos');
