@@ -4,7 +4,6 @@ import Application from './App.vue';
 import router from './router';
 import store from './store';
 import { toastMixin } from '@/mixins/toastMixin.js';
-import Toast from 'primevue/components/toast/Toast';
 import './index.scss';
 
 const emailReg = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -31,4 +30,3 @@ app.directive('valid', {
     }
   }
 });
-app.component(Toast as any);

@@ -7,4 +7,4 @@ export const toastMixin = {
       this.$toast.add({ severity: 'error', summary: text, life: 3000, group: 'toasts' });
     }
   }
-}
+};

@@ -3,7 +3,6 @@ import ApiService from '@/utils/apiService';
 import router from '../router/index';
 import { AuthService } from '@/utils/authService';
 import { Todo } from '@/models/interfaces';
-
 export default createStore({
   state: {
     todos: [] as Todo[],
@@ -32,8 +31,9 @@ export default createStore({
       const response = await ApiService.login(model);
       if (response.status === 200) {
         AuthService.login(response.data.accessToken);
-        router.push('/');
+        commit('setToken', response.data.accessToken);
       }
+      return response;
     },
     signup: async ({ commit }, model) => {
       const response = await ApiService.signup(model);
