@@ -60,7 +60,7 @@ export default defineComponent({
           email: this.login,
           password: this.password
         })
-        .then((data) => {
+        .then(() => {
           router.push('/');
         })
         .catch(() => this.errorToast('Incorrect login or password'));
