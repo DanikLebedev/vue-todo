@@ -62,7 +62,7 @@ export default defineComponent({
   methods: {
     async onSubmit() {
       if (this.password === this.confirmPassword) {
-        this.$store.dispatch('  signup', {
+        this.$store.dispatch('signup', {
           email: this.login,
           password: this.password
         });
