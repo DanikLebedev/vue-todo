@@ -34,10 +34,8 @@ import { defineComponent } from 'vue';
 import Button from 'primevue/components/button/Button';
 import Container from '@/components/container';
 import Toast from 'primevue/components/toast/Toast';
-import ApiService from '@/utils/apiService';
 import CustomInput from '@/components/custom-input';
 import router from '../router/index';
-import { AuthService } from '@/utils/authService';
 
 export default defineComponent({
   name: 'Login',
