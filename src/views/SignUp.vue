@@ -32,7 +32,6 @@
           <Button type="submit" icon="pi pi-check" label="Submit" />
         </form>
       </div>
-      <Toast position="top-center" />
     </div>
   </Container>
 </template>
@@ -40,7 +39,6 @@
 <script>
 import { defineComponent } from 'vue';
 import Button from 'primevue/components/button/Button';
-import Toast from 'primevue/components/toast/Toast';
 import Container from '@/components/container';
 import CustomInput from '@/components/custom-input';
 
@@ -56,8 +54,7 @@ export default defineComponent({
   components: {
     Container,
     CustomInput,
-    Button,
-    Toast
+    Button
   },
   methods: {
     async onSubmit() {

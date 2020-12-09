@@ -1,6 +1,7 @@
 <template>
   <navbar />
   <router-view />
+  <Toast position="top-center" />
 </template>
 
 <style lang="scss">
@@ -13,9 +14,11 @@
 </style>
 <script>
 import Navbar from '@/components/navbar';
+import Toast from 'primevue/components/toast/Toast';
 export default {
   components: {
-    Navbar
+    Navbar,
+    Toast
   }
 };
 </script>

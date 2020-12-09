@@ -19,14 +19,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Todo } from '@/models/interfaces';
+import Container from '@/components/container.vue';
+import Input from 'primevue/components/inputtext/InputText';
+import Button from 'primevue/components/button/Button';
+import DynamicComponents from '@/components/dynamic-component.vue';
 
 export default defineComponent({
   name: 'edit',
   components: {
-    Container: () => import('@/components/container.vue'),
-    Input: () => import('primevue/components/inputtext/InputText'),
-    Button: () => import('primevue/components/button/Button'),
-    DynamicComponents: () => import('@/components/dynamic-component.vue')
+    Container,
+    Input,
+    Button,
+    DynamicComponents
   },
   created() {
     if (this.$route.params.id) {

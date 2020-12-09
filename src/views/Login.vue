@@ -25,7 +25,6 @@
         </form>
       </div>
     </div>
-    <Toast position="top-center" />
   </Container>
 </template>
 
@@ -33,7 +32,6 @@
 import { defineComponent } from 'vue';
 import Button from 'primevue/components/button/Button';
 import Container from '@/components/container';
-import Toast from 'primevue/components/toast/Toast';
 import CustomInput from '@/components/custom-input';
 import router from '../router/index';
 
@@ -48,8 +46,7 @@ export default defineComponent({
   components: {
     Container,
     Button,
-    CustomInput,
-    Toast
+    CustomInput
   },
   methods: {
     async onSubmit() {
@@ -61,7 +58,10 @@ export default defineComponent({
         .then(() => {
           router.push('/');
         })
-        .catch(() => this.errorToast('Incorrect login or password'));
+        .catch(() => {
+          console.log('123');
+          this.errorToast('Incorrect login or password');
+        });
     }
   }
 });
