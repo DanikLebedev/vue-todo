@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix --cache --max-warnings=0",
     "server": "json-server db.json -m ./node_modules/json-server-auth",
-    "test": "npm run lint",
+    "test": "concurrently \"stylelint ./src/**/*.vue\" \"npm run lint\"",
     "postinstall": "husky install"
   },
   "dependencies": {
@@ -48,6 +48,9 @@
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-no-unsupported-browser-features": "^4.1.4",
     "typescript": "~3.9.3"
   }
 }

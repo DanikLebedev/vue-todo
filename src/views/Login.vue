@@ -76,6 +76,7 @@ export default defineComponent({
 
 .login-wrapper {
   display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
