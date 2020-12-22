@@ -4,6 +4,7 @@ import Application from './App.vue';
 import router from './router';
 import store from './store';
 import { toastMixin } from '@/mixins/toastMixin.js';
+import CustomInput from '@/components/custom-input.vue';
 import './index.scss';
 
 const emailReg = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -30,3 +31,5 @@ app.directive('valid', {
     }
   }
 });
+
+app.component('CustomInput', CustomInput);

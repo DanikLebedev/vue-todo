@@ -6,7 +6,7 @@ npm install
 ```
 ## JSON web-server setup
 1.  ```
-    npm i -g json-server json-server-auth
+    npm i json-server json-server-auth
     ```
 2.  ```
     json-server db.json -m ./node_modules/json-server-auth

@@ -13,4 +13,5 @@ export interface DynamicComponent {
   type: string;
   label: string;
   defaultValue: string | null;
+  id?: string;
 }

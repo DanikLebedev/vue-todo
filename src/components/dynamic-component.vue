@@ -1,21 +1,11 @@
-<template>
-  <div class="dynamic-component-wrapper">
-    <div :key="item.id" v-for="item in items">
-      <label>
-        <span>{{ item.label }}</span>
-        <input :id="item.id" :type="item.type" :value="item.defaultValue" />
-      </label>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, h, resolveComponent } from 'vue';
 import ApiService from '@/utils/apiService';
 import { DynamicComponent } from '../models/interfaces';
 
 export default defineComponent({
   name: 'dynamic-component',
+  functional: true,
   data() {
     return {
       items: [] as DynamicComponent[]
@@ -23,11 +13,29 @@ export default defineComponent({
   },
   mounted() {
     ApiService.getComponents().then((data) => (this.items = data));
+  },
+  render() {
+    const customInput = resolveComponent('customInput');
+    return h(
+      'div',
+      { class: 'dynamic-component-wrapper' },
+      this.items.map(({ defaultValue, type, label, id }: DynamicComponent) => {
+        return h(
+          'label',
+          h(customInput, {
+            value: defaultValue,
+            type: type,
+            name: id && id.toString(),
+            placeholder: label
+          })
+        );
+      })
+    );
   }
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .dynamic-component-wrapper {
   display: flex;
   flex-direction: column;

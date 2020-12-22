@@ -5,7 +5,7 @@
       <div class="login-wrapper">
         <form @submit.prevent="onSubmit">
           <custom-input
-            name="email"
+            name="email-login"
             icon="pi-user"
             :required="true"
             placeholder="Email"
@@ -14,7 +14,7 @@
             v-model:value="login"
           />
           <custom-input
-            name="password"
+            name="password-login"
             :required="true"
             placeholder="Password"
             type="password"

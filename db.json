@@ -44,7 +44,7 @@
       "type": "email",
       "label": "Your second email",
       "defaultValue": null,
-      "id": 1
+      "id": 2
     }
   ]
 }
