@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <div class="navbar">
+    <div :class="$style.navbar">
       <nav>
         <router-link to="/">Home</router-link>
         <router-link v-if="isAuth" to="/todos">Todo List</router-link>
@@ -38,7 +38,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .navbar {
   display: flex;
   justify-content: space-between;

@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <div class="edit-page">
+    <div :class="$style.edit_page">
       <h1>{{ $route.params.id ? 'Edit Todo' : 'Create Todo' }}</h1>
       <form @submit.prevent="updateTodo">
         <label>
@@ -56,8 +56,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.edit-page {
+<style lang="scss" module>
+.edit_page {
   label {
     margin-right: 20px;
   }

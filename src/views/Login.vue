@@ -1,8 +1,8 @@
 <template>
   <Container>
-    <div class="login-page p">
+    <div :class="$style.login_page">
       <h1>Login</h1>
-      <div class="login-wrapper">
+      <div :class="$style.login_wrapper">
         <form @submit.prevent="onSubmit">
           <custom-input
             name="email-login"
@@ -59,22 +59,21 @@ export default defineComponent({
           router.push('/');
         })
         .catch(() => {
-          console.log('123');
           this.errorToast('Incorrect login or password');
         });
     }
   }
 });
 </script>
-<style lang="scss" scoped>
-.login-page {
+<style lang="scss" module>
+.login_page {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-.login-wrapper {
+.login_wrapper {
   display: flex;
   display: block;
   flex-direction: column;

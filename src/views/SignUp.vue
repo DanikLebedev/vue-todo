@@ -1,8 +1,8 @@
 <template>
   <Container>
-    <div class="login-page">
+    <div :class="$style.login_page">
       <h1>Sign up</h1>
-      <div class="login-wrapper">
+      <div :class="$style.login_wrapper">
         <form @submit.prevent="onSubmit">
           <custom-input
             name="email"
@@ -70,15 +70,15 @@ export default defineComponent({
   }
 });
 </script>
-<style lang="scss" scoped>
-.login-page {
+<style lang="scss" module>
+.login_page {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-.login-wrapper {
+.login_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;

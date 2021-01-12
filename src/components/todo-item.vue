@@ -39,7 +39,7 @@ export default defineComponent({
   }
 });
 </script>
-<style lang="scss" scoped>
+<style lang="scss" module>
 .done-text {
   cursor: pointer;
 }

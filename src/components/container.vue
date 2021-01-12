@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
+  <div :class="$style.container">
     <slot></slot>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .container {
   padding: 3em;
 }

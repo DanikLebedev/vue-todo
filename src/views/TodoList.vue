@@ -2,8 +2,8 @@
   <Container>
     <div class="todo-page">
       <h2>Todo List</h2>
-      <Button icon="pi pi-plus" class="add-btn" @click="$router.push('/create')" label="Add Todo" />
-      <div v-if="todos.length" class="todo-list">
+      <Button icon="pi pi-plus" :class="$style.add_btn" @click="$router.push('/create')" label="Add Todo" />
+      <div v-if="todos.length" :class="$style.todo_list">
         <todo-item v-for="todo in todos" :key="todo.id" :todo="todo" />
       </div>
       <div v-else>
@@ -36,11 +36,11 @@ export default defineComponent({
   }
 });
 </script>
-<style lang="scss" scoped>
-.add-btn {
+<style lang="scss" module>
+.add_btn {
   margin-bottom: 1em;
 }
-.todo-list {
+.todo_list {
   display: flex;
   justify-content: space-around;
   flex-direction: column;

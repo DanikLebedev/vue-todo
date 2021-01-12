@@ -1,5 +1,5 @@
 <template>
-  <div class="form-field">
+  <div :class="$style.form_field">
     <span class="p-input-icon-right ">
       <i class="pi" :class="icon" />
       <label :for="name">
@@ -45,8 +45,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.form-field {
+<style lang="scss" module>
+.form_field {
   display: flex;
   flex-direction: column;
   align-items: center;
