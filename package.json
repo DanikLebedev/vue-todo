@@ -5,10 +5,11 @@
   "scripts": {
     "serve": "concurrently \"npm run server\"  \"vue-cli-service serve\"",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit",
     "lint": "concurrently \"stylelint ./src/**/*.vue\" \"vue-cli-service lint --fix --cache --max-warnings=0\"",
     "postinstall": "husky install",
-    "server": "json-server db.json -m ./node_modules/json-server-auth"
+    "server": "json-server db.json -m ./node_modules/json-server-auth",
+    "precommit": "concurrently \"npm run test:unit\"  \"npm run lint\""
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -56,7 +57,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "concurrently \"npm run test:unit\"  \"npm run lint\""
+      "pre-commit": "npm run precommit"
     }
   }
 }
