@@ -15,7 +15,7 @@ export default defineComponent({
     ApiService.getComponents().then((data) => (this.items = data));
   },
   render() {
-    const customInput = resolveComponent('customInput');
+    const customInput = resolveComponent('CustomInput');
     return h(
       'div',
       { class: 'dynamic-component-wrapper' },

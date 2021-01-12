@@ -5,6 +5,11 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '^.+\\.ts$': 'ts-jest'
   },
+  globals: {
+    'vue-jest': {
+      experimentalCSSCompile: true
+    }
+  },
   snapshotSerializers: ['jest-serializer-vue'],
   transformIgnorePatterns: ['./node_modules/(?!primevue/)']
 };

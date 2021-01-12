@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Render Pages render composition api component 1`] = `
+<div class="">
+  <h1>Composition API</h1>
+  <div>
+    <h2>Counter via state</h2><button class="p-button p-component" type="button">+</button><button class="p-button p-component ml-1" type="button">-</button>
+    <p>Counter 0</p>
+    <h2>Counter via ref</h2><button class="p-button p-component" type="button">+</button><button class="p-button p-component ml-1" type="button">-</button>
+    <p>Counter 0</p>
+  </div>
+</div>
+`;
+
 exports[`Render Pages render correct todo item 1`] = `
 <div
   class="p-card p-shadow-3"
@@ -12,55 +24,22 @@ exports[`Render Pages render correct todo item 1`] = `
   <div
     class="buttons-wrapper"
   >
-    <button
-      class="p-button p-component"
-      type="button"
-    >
-      
-      <span
-        class="pi pi-pencil p-button-icon p-button-icon-left"
-      />
-      <span
-        class="p-button-label"
-      >
-        Edit
-      </span>
-      <!--v-if-->
-      
-    </button>
-    <button
-      class="p-button p-component p-button-danger"
-      type="button"
-    >
-      
-      <span
-        class="pi pi-trash p-button-icon p-button-icon-left"
-      />
-      <span
-        class="p-button-label"
-      >
-        Delete
-      </span>
-      <!--v-if-->
-      
-    </button>
+    <button-stub />
+    <button-stub
+      class="p-button-danger"
+    />
   </div>
 </div>
 `;
 
-exports[`Render Pages render dynamic components 1`] = `<div class="dynamic-component-wrapper"></div>`;
+exports[`Render Pages render dynamic components 1`] = `
+<div
+  class="dynamic-component-wrapper"
+/>
+`;
 
 exports[`Render Pages renders 404 page 1`] = `
 <h1>
   Ooooops, Page not found
 </h1>
-`;
-
-exports[`Render Pages renders Container correctly 1`] = `
-<div
-  class="container"
->
-  
-  
-</div>
 `;

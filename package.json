@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "concurrently \"npm run server\"  \"vue-cli-service serve\"",
     "build": "vue-cli-service build",
-    "test": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit -u",
     "lint": "concurrently \"stylelint ./src/**/*.vue\" \"vue-cli-service lint --fix --cache --max-warnings=0\"",
     "postinstall": "husky install",
     "server": "json-server db.json -m ./node_modules/json-server-auth",

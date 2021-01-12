@@ -1,9 +1,8 @@
-import { mount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import Page404 from '@/views/404Page.vue';
-import Container from '@/components/container.vue';
-import HomePage from '@/views/Home.vue';
 import TodoItem from '@/components/todo-item.vue';
-import DynamicComponents from '@/components/dynamic-component.vue';
+import dynamicComponent from '@/components/dynamic-component.vue';
+import CompositionApiComponent from '@/components/composition_api_component.vue';
 
 describe('Render Pages', () => {
   it('renders 404 page', () => {
@@ -11,18 +10,8 @@ describe('Render Pages', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders Container correctly', () => {
-    const wrapper = mount(Container);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('renders correct layout', () => {
-    const homePage = mount(HomePage);
-    expect(homePage.html()).toContain('<h1>Welcome to Todo List</h1>');
-  });
-
   it('render correct todo item', () => {
-    const todo = mount(TodoItem, {
+    const todo = shallowMount(TodoItem, {
       props: {
         todo: { id: 2, title: 'test', done: false }
       }
@@ -31,7 +20,12 @@ describe('Render Pages', () => {
   });
 
   it('render dynamic components', () => {
-    const dynamicComponents = mount(DynamicComponents);
+    const dynamicComponents = shallowMount(dynamicComponent);
+    expect(dynamicComponents.element).toMatchSnapshot();
+  });
+
+  it('render composition api component', () => {
+    const dynamicComponents = mount(CompositionApiComponent);
     expect(dynamicComponents.html()).toMatchSnapshot();
   });
 });
